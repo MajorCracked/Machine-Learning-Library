@@ -36,7 +36,7 @@ int main() {
     cin >> output_model_name;
 
     cout << "\nLoading Dataset..." << endl;
-    Dataset raw_data;
+    Dataset raw_data(Matrix(0,0), Matrix(0,0));
     try {
         raw_data = Dataset::load_csv(dataset_path, label_cols);
     } catch(const exception& e) {
