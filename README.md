@@ -1,47 +1,37 @@
-# Native C++ Deep Learning Framework
+# Universal Native C++ Deep Learning Framework
 
 A custom, dependency-free Deep Learning framework written entirely in standard C++. 
-Engineered from the ground up to support both non-linear classification and multi-dimensional regression algorithms dynamically without relying on external libraries like Python's PyTorch or TensorFlow.
+Engineered from the ground up to support uploading any raw `.csv` datasheet dynamically, scaling Matrix dimensions over Native Hardware Multi-threads instantly without relying on external libraries like Python's PyTorch or TensorFlow.
 
 ## 🚀 Features
 
+- **Interactive Dynamic I/O**: The framework automatically prompts you for your `.csv` dataset paths, calculates standard array features natively mathematically, and structurally scales the first Layer of your neural network inputs seamlessly avoiding all `NaN` Matrix crashes.
 - **Object-Oriented Architecture**: Modular `Model`, `Layer`, `Optimizer`, and `Loss` interfaces.
-- **Native Matrix Core**: Dynamic memory allocation and 2D tensor abstractions using generic pointer templates (`vector<double>`).
 - **OpenMP Multithreading**: C-block accelerated matrix arithmetic via parallelized CPU hardware multithreading (`#pragma omp parallel for`).
-- **Memory Optimized**: O(n³) loop calculations are cache-line reordered natively allowing instant vector multiplications (AVX-2).
-- **Extensible Neural Layers**: Currently implementing `Dense` structures alongside customizable dynamic activations like `ReLU` and `SoftMax`.
+- **Memory Optimized**: O(n³) loop calculations are cache-line reordered natively allowing instant vector multiplications bounded to Native instruction APIs (AVX-2).
 - **Advanced Optimizers**: Custom internal implementation of Adaptive Moment Estimation (`Adam`).
-- **Model I/O Integration**: Seamless structural write sequences parsing out dense matrices to binary disk locations for instant inference reloading.
+- **Model Storage**: Natively parse your trained Deep Learning multi-dimensional layers immediately back onto sequential binary disk files representing fully trained weights for quick inference reloading!
 
-## ⚙️ Build Instructions
+## ⚙️ Compilation
 
-This engine runs at maximum speed utilizing strict performance execution flags. Ensure you have `g++` configured on your system.
+This engine runs at maximum speed utilizing strict performance execution flags. Ensure you have `g++` configured properly on your system.
 
 ```bash
 g++ -O3 -march=native -mavx2 -fopenmp main.cpp math/*.cpp nn/*.cpp optim/*.cpp data/*.cpp trainer/*.cpp loss/*.cpp metrics/*.cpp scheduler/*.cpp model/*.cpp -o ml.exe
 ```
 
-## 🧠 Module Architecture
+## 🧠 Using The Framework
 
-### The Trainer Subsystem
-Designed to intake arrays and auto-minimize objectives securely via polymorphic references (`Loss*`). 
+Upload whatever dataset (e.g. `housing_prices.csv`) you wish to train into the folder. Run `./ml.exe` and the platform will specifically guide you to input your parameters securely via your standard Terminal stream:
 
-```cpp
-MSE mse_loss;
-Adam adam_optim(0.001);
-
-// Natively tracks gradients on raw custom architectures smoothly!
-Trainer trainer(net, adam_optim, &mse_loss);
-trainer.fit(train_loader, val_loader, 10);
+```text
+========================================
+   UNIVERSAL C++ DEEP LEARNING ENGINE   
+========================================
+Enter path to CSV dataset (e.g., data/dataset.csv): data/housing_prices.csv
+Enter number of target labels at the end of CSV: 1
+Enter number of training epochs: 10
+Enter filename to save trained model (e.g., model.bin): house_model.bin
 ```
 
-### The Dense Network 
-A fully functional `Layer` inheritance abstraction. Propagates gradients backwards flawlessly natively over batches spanning over `200,000+` rows!
-
-```cpp
-Model net;
-net.add(make_unique<Dense>(10, 64));
-net.add(make_unique<ReLU>());
-net.add(make_unique<Dense>(64, 32));
-// ...
-```
+Because of native structural parsing, the Matrix abstractions successfully deduce that `house_prices` has exactly `6` dimension columns and will structure and initialize its hidden Deep Learning framework perfectly scaled to your dataset requirements dynamically in the background!
