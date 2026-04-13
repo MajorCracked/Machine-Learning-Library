@@ -1,5 +1,7 @@
 # Universal Native C++ Deep Learning Framework
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/MajorCracked/Machine-Learing-Library)
+
 A custom, dependency-free Deep Learning framework written entirely in standard C++. 
 Engineered from the ground up to support uploading any raw `.csv` datasheet dynamically, scaling Matrix dimensions over Native Hardware Multi-threads instantly without relying on external libraries like Python's PyTorch or TensorFlow.
 
